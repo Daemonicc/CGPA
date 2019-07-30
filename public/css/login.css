@@ -1,0 +1,17 @@
+body {background-color:#eee;}
+.container-fluid {padding:50px;}
+.container{background-color:white;padding:50px;   }
+#title{font-family: 'Lobster', cursive;;}
+
+@media (max-width: 800px) {
+   .container-fluid{
+       padding: 10px;
+   }
+   .container{
+       background-color: white;
+       padding: 10px;
+   }
+   .login{
+       margin-top: 10px
+   }
+  }

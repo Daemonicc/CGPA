@@ -1,0 +1,12 @@
+
+  
+  /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+  @media (max-width: 800px) {
+    input {
+        float: right;
+        border: 1px solid blue
+    }
+    .js-remove--exam-row{
+        float: right;
+    }
+  }
