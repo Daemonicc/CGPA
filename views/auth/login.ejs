@@ -4,32 +4,19 @@
     <div class="container">
         <h2 class="text-center" id="title">CGPA Calculator</h2>
          <hr>
+         <div class="container" style="padding-top: 10px">
+            <% if (error && error.length > 0) { %>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <%-error%>
+                </div>
+            <% } %>
+            <% if (success && success.length > 0) { %>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                <%=success%>
+                </div>
+            <% } %>
+          </div>
         <div class="row">
-            <div class="col-md-5">
-                 <form role="form" method="post" action="/register">
-                    <fieldset>							
-                        <p class="text-uppercase pull-center"> SIGN UP.</p>	
-                         <div class="form-group">
-                            <input type="text" name="username" id="username" class="form-control input-lg" placeholder="username">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input">
-                              By Clicking register you're agree to our policy & terms
-                            </label>
-                          </div>
-                         <div>
-                                   <input type="submit" class="btn btn-lg btn-primary" value="Register">
-                         </div>
-                    </fieldset>
-                </form>
-            </div>
 
             
             <div class="col-md-2">
@@ -37,21 +24,22 @@
             </div>
 
             <div class="col-md-5 login" >
-                      <form role="form">
+                      <form role="form" action="/login" method="POST">
                     <fieldset>							
                         <p class="text-uppercase"> Login using your account: </p>	
                              
                         <div class="form-group">
-                            <input type="email" name="username" class="form-control input-lg" placeholder="username">
+                            <input type="text" name="username" class="form-control input-lg" placeholder="username">
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control input-lg" placeholder="Password">
                         </div>
-                        <div>
+                        <div text-center>
                             <input type="submit" class="btn btn-lg btn-primary" value="Sign In">
                         </div>
                              
                      </fieldset>
+                     <a href="/register">Create Account</a>
             </form>	
             </div>
         </div>

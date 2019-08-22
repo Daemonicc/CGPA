@@ -5,28 +5,141 @@
             <h2 class="text-center" id="title">CGPA Calculator</h2>
             <hr>
     </div>
-    <form action="" id="form" class="">
-            <div id="form-exams-list">
+    <div class="container" style="padding-top: 10px">
+        <% if (error && error.length > 0) { %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <%-error%>
+          </div>
+        <% } %>
+        <% if (success && success.length > 0) { %>
+          <div class="alert alert-success alert-dismissible" role="alert">
+          <%=success%>
+          </div>
+        <% } %>
+        </div>
+    <form action="/add/<%=level%>" id="form" method="POST" class="">
+      <% if(level == 100 && currentUser.year1.credit.length > 0){ %>
+        <% for (let i = 0; i < currentUser.year1.credit.length; i ++) { %>
+          <div id="form-exams-list">
               <div class="form-group form-row">
                 <div class="col-md-3">
                 <label for="">Course: </label>
-                <input type="text" id="exam" placeholder="e.g. CSC 311"/>
+                <input type="text" id="exam" name="course[]" placeholder="e.g. CSC 311" value="<%=currentUser.year1.course[i] %>"/>
                 </div>
                 <div class="col-md-3">
                 <label for="">Course Unit: </label>
-                <input type="number" class="credit" id="exam_date" name="credit" />
+                <input type="number" class="credit" id="exam_date" name="credit[]" value="<%=currentUser.year1.credit[i] %>" />
             </div>
             <div class="col-md-3">
                 <label class="" for="">Grade </label>
-                <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade/>
+                <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade[] value="<%=currentUser.year1.grade[i] %>"/>
             </div>
               </div>
             </div>
+        <% } %>
+      <% }else if(level == 200 && currentUser.year2.grade.length > 0) { %>
+        <% for (let i = 0; i < currentUser.year2.credit.length; i ++) { %>
+          <div id="form-exams-list">
+              <div class="form-group form-row">
+                <div class="col-md-3">
+                <label for="">Course: </label>
+                <input type="text" id="exam" name="course[]" placeholder="e.g. CSC 311" value="<%=currentUser.year2.course[i] %>"/>
+                </div>
+                <div class="col-md-3">
+                <label for="">Course Unit: </label>
+                <input type="number" class="credit" id="exam_date" name="credit[]" value="<%=currentUser.year2.credit[i] %>" />
+            </div>      
+            <div class="col-md-3">
+                <label class="" for="">Grade </label>
+                <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade[] value="<%=currentUser.year2.grade[i] %>"/>
+            </div>
+              </div>
+            </div>
+        <% } %>
+        <% }else if(level == 300 && currentUser.year3.grade.length > 0) { %>
+          <% for (let i = 0; i < currentUser.year3.credit.length; i ++) { %>
+            <div id="form-exams-list">
+                <div class="form-group form-row">
+                  <div class="col-md-3">
+                  <label for="">Course: </label>
+                  <input type="text" id="exam" name="course[]" placeholder="e.g. CSC 311" value="<%=currentUser.year3.course[i] %>"/>
+                  </div>
+                  <div class="col-md-3">
+                  <label for="">Course Unit: </label>
+                  <input type="number" class="credit" id="exam_date" name="credit[]" value="<%=currentUser.year3.credit[i] %>" />
+              </div>      
+              <div class="col-md-3">
+                  <label class="" for="">Grade </label>
+                  <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade[] value="<%=currentUser.year3.grade[i] %>"/>
+              </div>
+                </div>
+              </div>
+          <% } %>
+          <% }else if(level == 400 && currentUser.year4.grade.length > 0) { %>
+            <% for (let i = 0; i < currentUser.year4.credit.length; i ++) { %>
+              <div id="form-exams-list">
+                  <div class="form-group form-row">
+                    <div class="col-md-3">
+                    <label for="">Course: </label>
+                    <input type="text" id="exam" name="course[]" placeholder="e.g. CSC 311" value="<%=currentUser.year4.course[i] %>"/>
+                    </div>
+                    <div class="col-md-3">
+                    <label for="">Course Unit: </label>
+                    <input type="number" class="credit" id="exam_date" name="credit[]" value="<%=currentUser.year4.credit[i] %>" />
+                </div>      
+                <div class="col-md-3">
+                    <label class="" for="">Grade </label>
+                    <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade[] value="<%=currentUser.year4.grade[i] %>"/>
+                </div>
+                  </div>
+                </div>
+            <% } %>
+            <% }else if(level == 500 && currentUser.year5.grade.length > 0) { %>
+              <% for (let i = 0; i < currentUser.year5.credit.length; i ++) { %>
+                <div id="form-exams-list">
+                    <div class="form-group form-row">
+                      <div class="col-md-3">
+                      <label for="">Course: </label>
+                      <input type="text" id="exam" name="course[]" placeholder="e.g. CSC 311" value="<%=currentUser.year5.course[i] %>"/>
+                      </div>
+                      <div class="col-md-3">
+                      <label for="">Course Unit: </label>
+                      <input type="number" class="credit" id="exam_date" name="credit[]" value="<%=currentUser.year5.credit[i] %>" />
+                  </div>      
+                  <div class="col-md-3">
+                      <label class="" for="">Grade </label>
+                      <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade[] value="<%=currentUser.year5.grade[i] %>"/>
+                  </div>
+                    </div>
+                  </div>
+              <% } %>
+            <%} else { %>
+                 <div id="form-exams-list">
+              <div class="form-group form-row">
+                <div class="col-md-3">
+                <label for="">Course: </label>
+                <input type="text" id="exam" name="course[]" placeholder="e.g. CSC 311"/>
+                </div>
+                <div class="col-md-3">
+                <label for="">Course Unit: </label>
+                <input type="number" class="credit" id="exam_date" name="credit[]" />
+            </div>
+            <div class="col-md-3">
+                <label class="" for="">Grade </label>
+                <input type="text" class="grade" id="exam_date" placeholder="e.g. B" name=grade[]/>
+            </div>
+              </div>
+            </div>
+            <% }%>
+
+         
             <button class="btn btn-primary js-add--exam-row">Add another exam</button>
             <button class="btn btn-primary calculate">Calculate GPA</button>
+            <button class="btn btn-primary">Save</button>
             
             
-            </form> 
+            </form>
+            <a href="/">Go home</a>
             <h5 id="result" class="text-center text-success mt-4"></h5>
 </div>
 
@@ -39,7 +152,6 @@ $(document).on 'click', '.js-add--exam-row', (e) ->
     clone = examsList.children('.form-group:first').clone(true)
     clone.append($('<button>').addClass('btn btn-danger js-remove--exam-row').html('Remove'))
     #reset values in cloned inputs and
-    #add enumerated ID's to input fields
     clone.find('input').val('').attr('id', () ->
       return $(this).attr('id') + '_' + (examsList.children('.form-group').length+1)
     )

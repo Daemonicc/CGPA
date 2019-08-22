@@ -9,11 +9,31 @@ var UserSchema = new mongoose.Schema({
     lastname: {type: String ,default: ''},
     email: {type: String, default: ''},
     years: {type: String, default: ''},
-    year1: {type: String, default: ''},
-    year2: {type: String, default: ''},
-    year3: {type: String, default: ''},
-    year4: {type: String, default: ''},
-    year5: {type:String, default: ''},
+    year1: {
+        course: [],
+          credit: [],
+          grade: []
+    },
+    year2:  {
+        course: [],
+          credit: [],
+          grade: []
+    },
+    year3:  {
+        course: [],
+          credit: [],
+          grade: []
+    },
+    year4: {
+        course: [],
+          credit: [],
+          grade: []
+    },
+    year5: {
+        course: [],
+          credit: [],
+          grade: []
+    },
     created: {type:  Date, default: Date.now}
 
 })
