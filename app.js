@@ -13,7 +13,8 @@ const app = express()
 
 app.use(express.static(__dirname  + '/public'))
 app.set('view engine', 'ejs');
-mongoose.connect('mongodb://localhost:27017/cgpa', {useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost:27017/cgpa', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://Diane:mamma@cluster0-yajnl.mongodb.net/cgpa?retryWrites=true', {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
  
