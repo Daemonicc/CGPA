@@ -18,6 +18,7 @@
         <% } %>
         </div>
     <form action="/add/<%=level%>" id="form" method="POST" class="">
+      <input class="cgpa" type="hidden" name="cgpa" value="">
       <% if(level == 100 && currentUser.year1.credit.length > 0){ %>
         <% for (let i = 0; i < currentUser.year1.credit.length; i ++) { %>
           <div id="form-exams-list">
@@ -198,6 +199,8 @@ $(document).on 'click', '.calculate', (e) ->
         gpa = parseFloat(total/courseload)
         p = document.querySelector('#result')
         p.innerHTML = 'YOUR GPA IS ' + gpa
+        cgpa_form = document.querySelector('.cgpa')
+        cgpa_form.value = gpa
             
 
 </script>

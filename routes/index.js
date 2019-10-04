@@ -64,10 +64,12 @@ router.get('/', middleware.isLoggedIn, function(req, res){
 router.post('/add/:level', middleware.isLoggedIn, function(req, res){
      const level = req.params.level
     if(level == 100){
-        User.findOneAndUpdate({"username": req.user.username}, {"year1": req.body}, function(err, user){
+        User.findOneAndUpdate({"username": req.user.username}, {"year1": req.body, "cgpa.year1": req.body.cgpa}, function(err, user){
             if (err){
                 console.log(err)
             }
+            console.log(req.body)
+            console.log(user)
         })
     }else if(level == 200){
         User.findOneAndUpdate({"username": req.user.username}, {"year2": req.body}, function(err, user){
@@ -98,5 +100,6 @@ router.post('/add/:level', middleware.isLoggedIn, function(req, res){
     req.flash('success', 'Updated')
     res.redirect('back')
 })
+
 
 module.exports = router;

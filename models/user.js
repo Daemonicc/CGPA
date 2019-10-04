@@ -34,7 +34,15 @@ var UserSchema = new mongoose.Schema({
           credit: [],
           grade: []
     },
+    cpga: {
+      year1: {type:Number, default: 0},
+      year2: {type:Number, default: 0},
+      year3: {type:Number, default: 0},
+      year4: {type:Number, default: 0},
+      year5:{type:Number, default: 0}
+    },
     created: {type:  Date, default: Date.now}
+    
 
 })
 
